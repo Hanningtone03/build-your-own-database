@@ -1,0 +1,25 @@
+{
+  "name": "USERS",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT"
+    },
+    {
+      "name": "NAME",
+      "type": "TEXT"
+    },
+    {
+      "name": "AGE",
+      "type": "INT"
+    }
+  ],
+  "rows": [
+    {
+      "name": "Jane",
+      "age": "30",
+      "id": 2
+    }
+  ],
+  "nextId": 2
+}
