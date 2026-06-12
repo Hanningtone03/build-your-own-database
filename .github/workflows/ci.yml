@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Syntax check
+        run: node --check src/db.js src/lexer.js src/parser.js src/executor.js src/table.js src/btree.js src/storage.js
+      - name: Run queries
+        run: |
+          echo "CREATE TABLE users (id INT, name TEXT)
+          INSERT INTO users (name) VALUES ('Alice')
+          SELECT * FROM users
+          exit" | node src/db.js
